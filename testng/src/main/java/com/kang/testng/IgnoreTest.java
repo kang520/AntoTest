@@ -1,0 +1,20 @@
+package com.kang.testng;
+
+import org.testng.annotations.Test;
+
+//忽略测试
+public class IgnoreTest {
+    @Test
+    public void ignore1(){
+        System.out.println("ignore1 执行！");
+    }
+    //@Test的enabled属性默认为true
+    @Test(enabled = false)
+    public void ignore2(){
+        System.out.println("ignore2 执行！");
+    }
+    @Test(enabled = true)
+    public void ignore3(){
+        System.out.println("ignore3 执行！");
+    }
+}

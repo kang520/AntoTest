@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.kang.model">
+    <select id="login" parameterType="com.kang.model.User" resultType="Integer">
+        select count(*) from user where userName = #{userName} and password = #{password}
+    </select>
+    <insert id="addUser" parameterType="com.kang.model.User">
+        insert into user(userName,password,sex,age,permission,isDelete)
+        values (#{userName},#{password},#{sex},#{age},#{permission},#{isDelete})
+    </insert>
+    <select id="getUserInfo" parameterType="com.kang.model.User" resultType="com.kang.model.User">
+        select * from user
+        <trim prefix="where" prefixOverrides="and">
+            <if test="null !=id and ''!= id">
+                and id = #{id}
+            </if>
+            <if test="null != userName and '' != userName">
+                and userName = #{userName}
+            </if>
+            <if test="null != password and '' != password">
+                and password = #{password}
+            </if>
+            <if test="null != sex and '' != sex">
+                and sex = #{sex}
+            </if>
+            <if test="null != age and '' != age">
+                and age = #{age}
+            </if>
+            <if test="null != permission and '' != permission">
+                and permission = #{permission}
+            </if>
+            <if test="null != isDelete and '' != isDelete">
+                and isDelete = #{isDelete}
+            </if>
+        </trim>
+    </select>
+    <update id="updateUserInfo" parameterType="com.kang.model.User">
+        update user
+        <trim prefix="set" suffixOverrides=",">
+            <if test="null != userName and '' != userName">
+                userName = #{userName},
+            </if>
+            <if test="null != password and '' != password">
+                password = #{password},
+            </if>
+            <if test="null != sex and '' != sex">
+                sex = #{sex},
+            </if>
+            <if test="null != age and '' != age">
+                age = #{age},
+            </if>
+            <if test="null != permission and '' != permission">
+                permission = #{permission},
+            </if>
+            <if test="null != isDelete and '' != isDelete">
+                isDelete = #{isDelete},
+            </if>
+        </trim>
+        where id = #{id}
+    </update>
+</mapper>

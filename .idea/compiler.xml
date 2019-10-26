@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="demo" />
+        <module name="httpclient" />
+        <module name="test" />
+        <module name="springboot" />
+        <module name="extentreport" />
+        <module name="testng" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="AntoTest" target="1.8" />
+      <module name="casemanager" target="1.8" />
+      <module name="demo" target="1.8" />
+      <module name="extentreport" target="6" />
+      <module name="httpclient" target="1.8" />
+      <module name="springboot" target="1.8" />
+      <module name="test" target="1.8" />
+      <module name="testng" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="casemanager" options="-parameters" />
+      <module name="demo" options="-parameters -extdirs D:\GitRepository\AntoTest\demo/lib" />
+      <module name="extentreport" options="-parameters" />
+      <module name="httpclient" options="-parameters" />
+      <module name="springboot" options="-parameters" />
+      <module name="test" options="-parameters" />
+    </option>
+  </component>
+</project>
